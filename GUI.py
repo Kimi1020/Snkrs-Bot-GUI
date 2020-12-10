@@ -7,13 +7,15 @@ def test():
     if(username_entry.get() != "" and password_entry.get() != "" and url_entry.get() != "" and shoe_size.get() != ""):
         print('hello')
         print(password_entry.get())
-
         command = 'py .\main.py --username %s --password %s --url %s --shoe-size %s' % (
             username_entry.get(), password_entry.get(), url_entry.get(), shoe_size.get())
         os.system(command)
 
 
-# Create Window
+def logTimeStatus():
+    print('test')
+
+    # Create Window
 app = Tk()
 
 # Login Information Label
@@ -61,16 +63,29 @@ shoe_size_dropdown.grid(row=5, column=1, sticky=W, padx=25)
 bot_settings_label = Label(app, text="Bot Settings", font=('bold', 16))
 bot_settings_label.grid(row=6, column=0, sticky=W, )
 
+# Login Time Status
+login_time_int = IntVar()
+login_time_int_checkbox = Checkbutton(
+    app, text="Login Time", variable=login_time_int)
+login_time_int_checkbox.grid(row=7, column=0, sticky=W, padx=25)
+
+# Release Time Status
+release_time_int = IntVar()
+release_time_int_checkbox = Checkbutton(
+    app, text="release Time", variable=release_time_int)
+release_time_int_checkbox.grid(row=7, column=0, sticky=N, padx=25)
+
+
 # Log in time
 login_time_label = Label(
     app, text="Login Time (Military Time HH:MM)", font=('bold', 10))
-login_time_label.grid(row=7, column=0, sticky=W, padx=25)
+login_time_label.grid(row=8, column=0, sticky=W, padx=25)
 HoursList = np.arange(24)
 login_time_hours = StringVar()
 login_time_hours.set(HoursList[9])
 login_time_hoursdropdown = OptionMenu(app, login_time_hours, *HoursList)
 login_time_hoursdropdown.config(width=3, font=('Helvetica', 10))
-login_time_hoursdropdown.grid(row=8, column=0, sticky=W, padx=25)
+login_time_hoursdropdown.grid(row=9, column=0, sticky=W, padx=25)
 
 MinutesList = np.arange(60)
 login_time_minutes = StringVar()
@@ -78,63 +93,63 @@ login_time_minutes.set(MinutesList[59])
 login_time_minutes_dropdown = OptionMenu(
     app, login_time_minutes, *MinutesList)
 login_time_minutes_dropdown.config(width=3, font=('Helvetica', 10))
-login_time_minutes_dropdown.grid(row=8, column=0,  padx=25)
+login_time_minutes_dropdown.grid(row=9, column=0,  padx=25)
 
 # Release Time
 release_time_label = Label(
     app, text="Release Time (Military Time)", font=('bold', 10))
-release_time_label.grid(row=7, column=1, sticky=W, padx=25)
+release_time_label.grid(row=8, column=1, sticky=W, padx=25)
 HoursList = np.arange(24)
 release_time = StringVar()
 release_time.set(HoursList[10])
 release_time_dropdown = OptionMenu(app, release_time, *HoursList)
 release_time_dropdown.config(width=15, font=('Helvetica', 10))
-release_time_dropdown.grid(row=8, column=1, sticky=W, padx=25)
+release_time_dropdown.grid(row=9, column=1, sticky=W, padx=25)
 
 # Web Driver
 DriverList = ["firefox", "chrome"]
 driver_label = Label(
     app, text="Web Driver", font=('bold', 10))
-driver_label.grid(row=9, column=0, sticky=W, padx=25)
+driver_label.grid(row=10, column=0, sticky=W, padx=25)
 driver = StringVar()
 driver.set(DriverList[0])
 driver_dropdown = OptionMenu(app, driver, *DriverList)
 driver_dropdown.config(width=15, font=('Helvetica', 10))
-driver_dropdown.grid(row=10, column=0, sticky=W, padx=25)
+driver_dropdown.grid(row=11, column=0, sticky=W, padx=25)
 
 # Retries
 RetriesSecondsList = [1, 2, 3, 4, 5]
 retries_label = Label(
     app, text="Number of Retries", font=('bold', 10))
-retries_label.grid(row=9, column=1, sticky=W, padx=25)
+retries_label.grid(row=10, column=1, sticky=W, padx=25)
 retries = StringVar()
 retries.set(RetriesSecondsList[0])
 retries_dropdown = OptionMenu(app, retries, *RetriesSecondsList)
 retries_dropdown.config(width=15, font=('Helvetica', 10))
-retries_dropdown.grid(row=10, column=1, sticky=W, padx=25)
+retries_dropdown.grid(row=11, column=1, sticky=W, padx=25)
 
 # Page Load Timeout
 PageLoadTimeoutSecondsList = [1, 2, 3]
 page_load_timeout_label = Label(
     app, text="Page Load Timeout", font=('bold', 10))
-page_load_timeout_label.grid(row=11, column=0, sticky=W, padx=25)
+page_load_timeout_label.grid(row=12, column=0, sticky=W, padx=25)
 page_load_timeout = StringVar()
 page_load_timeout.set(PageLoadTimeoutSecondsList[0])
 page_load_timeout_dropdown = OptionMenu(
     app, page_load_timeout, *PageLoadTimeoutSecondsList)
 page_load_timeout_dropdown.config(width=15, font=('Helvetica', 10))
-page_load_timeout_dropdown.grid(row=12, column=0, sticky=W, padx=25)
+page_load_timeout_dropdown.grid(row=13, column=0, sticky=W, padx=25)
 
 # Headless
 headless_int = IntVar()
 headless_checkbox = Checkbutton(app, text="Headless", variable=headless_int)
-headless_checkbox.grid(row=13, sticky=W, padx=25)
+headless_checkbox.grid(row=14, sticky=W, padx=25)
 
 # No Quit
 no_quit_int = IntVar()
 no_quit_checkbox = Checkbutton(
     app, text="Dont Quit After Purchase", variable=no_quit_int)
-no_quit_checkbox.grid(row=14, sticky=W, padx=25)
+no_quit_checkbox.grid(row=15, sticky=W, padx=25)
 
 # Start Script
 btn = Button(app, text='Start', width=12, command=test)
