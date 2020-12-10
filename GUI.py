@@ -39,16 +39,17 @@ password_entry.grid(row=2, column=1, sticky=W, padx=25)
 shoe_information_label = Label(app, text="Shoe Information", font=('bold', 16))
 shoe_information_label.grid(row=3, column=0, sticky=W, pady=10)
 
+# Url
 url_text = StringVar()
 url_label = Label(app, text="url *", font=('bold', 10))
 url_label.grid(row=4, column=0, sticky=W, padx=25)
 url_entry = Entry(app, textvariable=url_text)
 url_entry.grid(row=5, column=0, sticky=W, padx=25)
 
+# Show size
 shoe_size_text = StringVar()
 shoe_size_label = Label(app, text="shoe size (Men)*", font=('bold', 10))
 shoe_size_label.grid(row=4, column=1, sticky=W, padx=25)
-
 OptionList = [8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 13, 14, 15]
 shoe_size = StringVar()
 shoe_size.set(OptionList[0])
@@ -56,18 +57,11 @@ shoe_size_dropdown = OptionMenu(app, shoe_size, *OptionList)
 shoe_size_dropdown.config(width=15, font=('Helvetica', 10))
 shoe_size_dropdown.grid(row=5, column=1, sticky=W, padx=25)
 
-ShoeSizesList = [8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 13, 14, 15]
-shoe_size = StringVar()
-shoe_size.set(OptionList[0])
-shoe_size_dropdown = OptionMenu(app, shoe_size, *OptionList)
-shoe_size_dropdown.config(width=15, font=('Helvetica', 10))
-shoe_size_dropdown.grid(row=5, column=1, sticky=W, padx=25)
-
-# Shoe Information Label
+# Bot Settings Label
 bot_settings_label = Label(app, text="Bot Settings", font=('bold', 16))
 bot_settings_label.grid(row=6, column=0, sticky=W, )
 
-
+# Log in time
 login_time_label = Label(
     app, text="Login Time (Military Time HH:MM)", font=('bold', 10))
 login_time_label.grid(row=7, column=0, sticky=W, padx=25)
@@ -86,7 +80,7 @@ login_time_minutes_dropdown = OptionMenu(
 login_time_minutes_dropdown.config(width=3, font=('Helvetica', 10))
 login_time_minutes_dropdown.grid(row=8, column=0,  padx=25)
 
-
+# Release Time
 release_time_label = Label(
     app, text="Release Time (Military Time)", font=('bold', 10))
 release_time_label.grid(row=7, column=1, sticky=W, padx=25)
@@ -97,7 +91,7 @@ release_time_dropdown = OptionMenu(app, release_time, *HoursList)
 release_time_dropdown.config(width=15, font=('Helvetica', 10))
 release_time_dropdown.grid(row=8, column=1, sticky=W, padx=25)
 
-
+# Web Driver
 DriverList = ["firefox", "chrome"]
 driver_label = Label(
     app, text="Web Driver", font=('bold', 10))
@@ -108,6 +102,7 @@ driver_dropdown = OptionMenu(app, driver, *DriverList)
 driver_dropdown.config(width=15, font=('Helvetica', 10))
 driver_dropdown.grid(row=10, column=0, sticky=W, padx=25)
 
+# Retries
 RetriesSecondsList = [1, 2, 3, 4, 5]
 retries_label = Label(
     app, text="Number of Retries", font=('bold', 10))
@@ -118,6 +113,7 @@ retries_dropdown = OptionMenu(app, retries, *RetriesSecondsList)
 retries_dropdown.config(width=15, font=('Helvetica', 10))
 retries_dropdown.grid(row=10, column=1, sticky=W, padx=25)
 
+# Page Load Timeout
 PageLoadTimeoutSecondsList = [1, 2, 3]
 page_load_timeout_label = Label(
     app, text="Page Load Timeout", font=('bold', 10))
@@ -129,12 +125,12 @@ page_load_timeout_dropdown = OptionMenu(
 page_load_timeout_dropdown.config(width=15, font=('Helvetica', 10))
 page_load_timeout_dropdown.grid(row=12, column=0, sticky=W, padx=25)
 
-
+# Headless
 headless_int = IntVar()
 headless_checkbox = Checkbutton(app, text="Headless", variable=headless_int)
 headless_checkbox.grid(row=13, sticky=W, padx=25)
 
-
+# No Quit
 no_quit_int = IntVar()
 no_quit_checkbox = Checkbutton(
     app, text="Dont Quit After Purchase", variable=no_quit_int)
