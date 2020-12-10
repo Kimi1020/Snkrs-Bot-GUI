@@ -1,0 +1,9 @@
+geckodriver.log
+pip-selfcheck.json
+venv
+.idea
+/bin
+main.py
+README.md
+requirements.txt
+experimental.py
